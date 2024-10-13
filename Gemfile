@@ -35,10 +35,10 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 # Mini Magick
-gem 'mini_magick'
+gem "mini_magick"
 
 # Active Storage
-gem 'activestorage'
+gem "activestorage"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
