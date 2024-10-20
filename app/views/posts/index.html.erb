@@ -1,6 +1,12 @@
 <h1>Art Gallery</h1>
 
 <%= link_to 'Upload New post', new_post_path %>
+<%= link_to 'Create Account', new_user_path %>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <ul>
   <% @posts.each do |post| %>
     <li>
