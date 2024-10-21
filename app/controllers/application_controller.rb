@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
     # If session[:user_id] is nil, set it to nil, otherwise find the user by id.
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
-
 end
