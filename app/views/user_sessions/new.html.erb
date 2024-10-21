@@ -1,2 +1,21 @@
-<h1>UserSessions#new</h1>
-<p>Find me in app/views/user_sessions/new.html.erb</p>
+<h1>Login to Aurora</h1>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
+<%= form_with model: @user, url: user_sessions_path do |form| %>
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email, required: true %>
+  </div>
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, required: true %>
+  </div>
+  <p>
+    <%= form.submit 'Login' %>
+  </p>
+<% end %>
+
+<%= link_to 'Sign up', new_user_path %>
