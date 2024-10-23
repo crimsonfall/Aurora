@@ -1,4 +1,5 @@
 <h2><%= @post.title %></h2>
+<h4>Posted by <%= @post.user.username %></h4>
 <p><%= @post.description %> </p>
 <%= image_tag @post.image %>
 
