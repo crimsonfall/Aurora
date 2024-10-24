@@ -4,12 +4,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
-  end
 
-  if @comment.save
-    redirect_to @post
-  else
-    render 'new'
+    if @comment.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
   private
