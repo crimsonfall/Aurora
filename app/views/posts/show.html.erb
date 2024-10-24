@@ -1,15 +1,17 @@
 <h2><%= @post.title %></h2>
-<h4>Posted by <%= @post.user.username %></h4>
+<h4>Posted by <%= @post.user.username %> <%= time_ago_in_words(@post.created_at)%> ago</h4>
 <p><%= @post.description %> </p>
 <%= image_tag @post.image %>
 
 <div>
     <%= link_to "Back", root_path %>
-    <% if logged_in? && @post.user == current_user %>
+    <% if logged_in? %>
+      <% if @post.user == current_user %>
         <%= link_to "Edit post", edit_post_path(@post) %>
-        <%= link_to "Delete post", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your post?"} %>
-        <h3>Comment Post</h3>
-        <%= render 'comments/form' %>
+        <%= link_to "Delete post", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your post?" } %>
+      <% end %>
+      <h3>Comment Post</h3>
+      <%= render 'comments/form' %>
     <% end %>
 </div>
 
