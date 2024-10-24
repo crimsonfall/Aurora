@@ -11,5 +11,8 @@
 
 <%= link_to "Back", root_path %>
 
+<h3>Comments:</h3>
+<%= render @post.comments %>
+
 <h3>Add a Comment</h3>
 <%= render 'comments/form' %>
