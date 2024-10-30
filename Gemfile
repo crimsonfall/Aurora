@@ -43,6 +43,13 @@ gem "activestorage"
 # Bcrypt
 gem "bcrypt", "~> 3.1", ">= 3.1.20"
 
+# Bootstrap
+gem "bootstrap", "~> 5.3", ">= 5.3.3"
+
+# Bootstrap Sass Engine Gems
+gem "dartsass-sprockets", "~> 3.1"
+
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
