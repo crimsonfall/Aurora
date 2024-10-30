@@ -20,14 +20,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar fixed-top">
       <div class="container-fluid">
-          <div class="navbar-brand custom-nav-item fw-bold">Aurora</div>
+          <div class="navbar-brand custom-navbar-title fw-bold">Aurora</div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link custom-nav-item" href="#">Home</a>
+                <%= link_to 'Home', root_path, class: 'nav-link custom-nav-item' %>
               </li>
               <li class="nav-item">
                 <a class="nav-link custom-nav-item" href="#">Profile</a>

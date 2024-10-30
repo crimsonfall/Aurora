@@ -13,12 +13,16 @@
  */
  @import "bootstrap";
 
- body {
+body {
     padding-top: 56px;
   }
 
-  .custom-navbar {
+.custom-navbar {
     background-color:rgb(102, 51, 153);
+}
+
+.custom-navbar-title {
+    color:#f0f0f0;
 }
 
 .custom-nav-item {
