@@ -12,3 +12,168 @@
  *
  */
  @import "bootstrap";
+
+ body {
+    padding-top: 56px;
+  }
+
+  .custom-navbar {
+    background-color:rgb(102, 51, 153);
+}
+
+.custom-nav-item {
+    color:#f0f0f0;
+    transition: color 0.3s;
+}
+
+.custom-nav-item:hover {
+    color:#ccc
+}
+
+.custom-nav-item.active {
+    color: white !important;
+    text-decoration: underline !important;
+}
+
+.custom-nav-item-two {
+    color:#f0f0f0;
+    transition: color 0.3s;
+}
+
+.custom-nav-item-two:hover {
+    color:#ccc
+}
+
+.custom-nav-item-two.active {
+    color: rgb(0, 0, 0) !important;
+}
+
+.post-card {
+    margin-bottom: 20px;
+}
+
+.post-image {
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment-section {
+    margin-top: 15px;
+}
+
+.comment {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-primary:hover {
+    background-color:rgb(72, 35, 108);
+    border-color:rgb(72, 35, 108);
+}
+
+.btn-primary {
+    background-color:rgb(102, 51, 153);
+    border-color:rgb(102, 51, 153);
+
+}
+
+.btn-secondary {
+    background-color:rgb(72, 36, 108);
+    border-color:rgb(44, 40, 40)
+}
+
+
+/* Ensure post form is wider but centered */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inbox-container {
+    display: flex;
+    height: calc(100vh - 56px); /* Adjusted for navbar height */
+}
+.sidebar {
+    width: 30%;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+.sidebar ul li:hover {
+    background-color: #f0f0f0;
+}
+.sidebar ul li.active {
+    background-color: #f9dbc9;
+}
+.message-area {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+.message-header {
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.message-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+.message-body .message {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    max-width: 60%;
+}
+.message-body .message.sent {
+    background-color: #f9dbc9;
+    margin-left: auto;
+}
+.message-footer {
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+.message-footer input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.message-footer button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.message-footer button:hover {
+    background-color: #0056b3;
+}
