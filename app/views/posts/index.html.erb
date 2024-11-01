@@ -2,12 +2,22 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <h2><%= link_to post.title, post_path(post) %></h2>
-      <p><%= post.description %></p>
-      <%= image_tag post.image %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-4 d-flex justify-content-center">
+  <div class="col-md-8">
+    <div id="postContainer">
+      <% @posts.each do |post| %>
+        <div class="card post-card">
+          <div class="card-body">
+            <div class="d-flex align-items-start">
+              <div>
+                <h5 class="card-title"><%= post.user.username %></h5>
+                <p class="post-caption"><%= post.title %></p>
+              </div>
+            </div>
+            <div> <%= link_to image_tag(post.image, class: 'img-fluid post-image mt-3'), post_path(post) %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
