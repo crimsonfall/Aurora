@@ -6,13 +6,10 @@
           <%= form_with model: @user, html: { class: 'createAccountForm' } do |form| %>
 
             <% if @user.errors.any? %>
-              <div>
-                <h2><%= pluralize(@user.errors.count, "error") %> prohibited you from creating an account:</h2>
-                <ul>
-                  <% @user.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
+              <div class="alert alert-danger text-center">
+                <% @user.errors.full_messages.each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
               </div>
             <% end %>
 
