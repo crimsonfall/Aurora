@@ -15,6 +15,12 @@
               </div>
             </div>
             <div> <%= link_to image_tag(post.image, class: 'img-fluid post-image mt-3'), post_path(post) %></div>
+            <p> Likes: <span id="like-count-<%= post.id %>"><%= post.likes.count %></span></p>
+            <% if logged_in? %>
+              <button class="like-button" data-post-id="<%= post.id %>">
+                <%= current_user.liked_posts.include?(post) ? 'Unlike' : 'Like' %>
+              </button>
+            <% end %> 
           </div>
         </div>
       <% end %>

@@ -2,6 +2,7 @@
 <h4>Posted by <%= @post.user.username %> <%= time_ago_in_words(@post.created_at)%> ago</h4>
 <p><%= @post.description %> </p>
 <%= image_tag @post.image %>
+<p>Likes: <span id="like-count-<%= @post.id %>"><%= @post.likes.count %></span></p>
 
 <div>
     <%= link_to "Back", root_path %>
@@ -10,6 +11,9 @@
         <%= link_to "Edit post", edit_post_path(@post) %>
         <%= link_to "Delete post", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your post?" } %>
       <% end %>
+      <button class="like-button" data-post-id="<%= @post.id %>">
+        <%= current_user.liked_posts.include?(@post) ? 'Unlike' : 'Like' %>
+      </button>
       <h3>Comment Post</h3>
       <%= render 'comments/form' %>
     <% end %>

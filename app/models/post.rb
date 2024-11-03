@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes
+  has_many :likers, through: :likes, source: :user
   has_one_attached :image
 
   validates :title, presence: true
