@@ -1,8 +1,8 @@
 <%= form_with model: [@post, @comment] do |form| %>
   <div>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control comment-input", placeholder: "Add a comment..." %>
   </div>
   <div>
-    <%= form.submit 'Post Comment' %>
+    <%= form.submit 'Post Comment', class: "btn btn-outline-secondary btn-sm mt-2 post-comment-btn" %>
   </div>
 <% end %>
