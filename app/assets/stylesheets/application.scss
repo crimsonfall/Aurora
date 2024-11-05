@@ -57,12 +57,19 @@ body {
     margin-bottom: 20px;
 }
 
-.post-image {
-    max-height: 800px;
+.post-image-index, .post-image-show {
     object-fit: cover;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.post-image-index {
+    max-height: 300px;
+}
+
+.post-image-show {
+    max-height: 800px;
 }
 
 .comment-section {
