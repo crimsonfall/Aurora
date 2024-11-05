@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create, :edit, :update, :destroy]
     member do
-      post 'like'
+      post "like"
     end
   end
   root "posts#index"

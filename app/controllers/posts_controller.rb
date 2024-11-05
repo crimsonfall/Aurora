@@ -58,7 +58,6 @@ class PostsController < ApplicationController
       format.html { redirect_to @post }
       format.json { render json: { like_count: @post.likes.count, liked: @liked } }
   end
-
   end
 
   private
