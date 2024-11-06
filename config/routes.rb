@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   end
   root "posts#index"
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   resources :user_sessions, only: [:new, :create, :destroy]
 end
