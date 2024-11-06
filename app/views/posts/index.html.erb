@@ -10,7 +10,7 @@
           <div class="card-body">
             <div class="d-flex align-items-start">
               <div>
-                <h5 class="card-title"><%= post.user.username %></h5>
+                <h5 class="card-title"><%= link_to post.user.username, user_path(post.user) %></h5>
                 <p class="post-caption"><%= post.title %></p>
               </div>
             </div>
