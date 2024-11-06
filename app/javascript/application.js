@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
           // Update the like count and button text based on the response
-          likeCountElement.textContent = data.like_count;
+          likeCountElement.textContent = data.like_count + " likes";
           button.textContent = data.liked ? 'Unlike' : 'Like';
         })
         .catch(error => {
