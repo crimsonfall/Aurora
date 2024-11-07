@@ -1,6 +1,13 @@
 <div class="container mt-5 pt-4">
   <div class="row">
     <div class="col-md-4 text-center text-white">
+      <div>
+        <% if @user.profile_picture.attached? %>
+            <%= image_tag(@user.profile_picture , width:300)%>
+          <% else %>
+            <%= image_tag('default_profile_picture.png',width:300) %>
+          <%end%>
+      </div>
       <h3> <%=@user.username%> </h3>
       <p class="user-bio">
         <%= @user.bio.present? ? @user.bio : "This user has not set a bio yet." %>

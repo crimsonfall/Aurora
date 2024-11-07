@@ -40,6 +40,6 @@ class UsersController < ApplicationController
   end
 
   def user_params_edit
-    params.require(:user).permit(:bio)
+    params.require(:user).permit(:bio, :profile_picture)
   end
 end
