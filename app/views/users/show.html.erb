@@ -3,9 +3,9 @@
     <div class="col-md-4 text-center text-white">
       <div class="mb-4">
         <% if @user.profile_picture.attached? %>
-            <%= image_tag(@user.profile_picture , width:200)%>
+            <%= image_tag(@user.profile_picture, class: 'profile-picture-show')%>
           <% else %>
-            <%= image_tag('default_profile_picture.png',width:200) %>
+            <%= image_tag('default_profile_picture.png', class: 'profile-picture-show') %>
           <%end%>
       </div>
       <h3> <%=@user.username%> </h3>
