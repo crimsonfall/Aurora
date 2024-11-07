@@ -9,6 +9,11 @@
         <div class="card post-card">
           <div class="card-body">
             <div class="d-flex align-items-start">
+              <% if post.user.profile_picture.attached? %>
+                <%= image_tag(post.user.profile_picture, class: 'profile-picture-index me-3')%>
+              <% else %>
+                <%= image_tag('default_profile_picture.png', class: 'profile-picture-index me-3') %>
+              <%end%>
               <div>
                 <h5 class="card-title"><%= link_to post.user.username, user_path(post.user) %></h5>
                 <p class="post-caption"><%= post.title %></p>
