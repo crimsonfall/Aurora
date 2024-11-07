@@ -4,9 +4,14 @@
       <div class="card post-card">
         <div class="card-body">
           <div class="d-flex align-items-start">
+            <% if @post.user.profile_picture.attached? %>
+              <%= image_tag(@post.user.profile_picture, class: 'profile-picture-index me-3')%>
+            <% else %>
+              <%= image_tag('default_profile_picture.png', class: 'profile-picture-index me-3') %>
+            <%end%>
             <div>
-              <h3 class="card-title"><%= @post.title %></h3>
-              <p class="post-caption"> By <%= @post.user.username %></p>
+              <h5 class="card-title"><%= link_to @post.user.username, user_path(@post.user) %></h5>
+              <p class="post-caption"> <%= @post.title %></p>
             </div>
           </div>
           <div> <%= link_to image_tag(@post.image, class: 'img-fluid post-image-show mt-3'), post_path(@post) %></div>
@@ -15,24 +20,25 @@
             <p><%= @post.description %> </p>
           </div>
           <div class="d-flex justify-content-between mt-3">
-            <!--<%= link_to "Back", root_path %> -->
-            <% if logged_in? %>
-                <div class="d-flex align-items-center">
-                  <button class="btn btn-outline-primary btn-md like-btn btn-icon like-button" data-post-id="<%= @post.id %>">
-                    <%= current_user.liked_posts.include?(@post) ? 'Unlike' : 'Like' %>
-                  </button>
-                  <span class="ms-2" id="like-count-<%= @post.id %>"><%= @post.likes.count %> likes</span>
-                </div>
-              <% if @post.user == current_user %>
-                <div class="d-flex">
-                  <button class="btn btn-outline-secondary btn-md edit-caption-btn btn-icon me-2">
-                    <%= link_to raw("<i class='fas fa-pencil-alt'></i>"), edit_post_path(@post) %>
-                  </button>
-                  <button class="btn btn-outline-danger btn-md delete-btn btn-icon">
-                    <%= link_to raw("<i class='fas fa-trash'></i>"), post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your post?" } %>
-                  </button>
-                </div>
+            <div class="d-flex align-items-center">
+              <% if logged_in? %>
+                <button class="btn btn-outline-primary btn-md like-btn btn-icon like-button" data-post-id="<%= @post.id %>">
+                  <%= current_user.liked_posts.include?(@post) ? 'Unlike' : 'Like' %>
+                </button>
               <% end %>
+              <span class="ms-2" id="like-count-<%= @post.id %>"><%= @post.likes.count %> likes</span>
+            </div>
+            <% if logged_in? %>
+            <% if @post.user == current_user %>
+              <div class="d-flex">
+                <button class="btn btn-outline-secondary btn-md edit-caption-btn btn-icon me-2">
+                  <%= link_to raw("<i class='fas fa-pencil-alt'></i>"), edit_post_path(@post) %>
+                </button>
+                <button class="btn btn-outline-danger btn-md delete-btn btn-icon">
+                  <%= link_to raw("<i class='fas fa-trash'></i>"), post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your post?" } %>
+                </button>
+              </div>
+            <% end %>
             <% end %>
           </div>
           <div class="comment-section mt-3">
