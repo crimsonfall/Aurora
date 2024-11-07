@@ -30,23 +30,22 @@
               <li class="nav-item">
                 <%= link_to 'Home', root_path, class: 'nav-link custom-nav-item' %>
               </li>
-              <li class="nav-item">
-                <a class="nav-link custom-nav-item" href="#">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link custom-nav-item" href="#">Messages</a>
-              </li>
+              <% if logged_in?%>
+                <li class="nav-item">
+                  <%= link_to 'Profile', user_path(current_user), class: 'nav-link custom-nav-item'%>
+                </li>
+              <% end %>
             </ul>
             <ul class="navbar-nav ms-auto">
               <% if logged_in? %>
                 <li class="nav-item" id="welcomeItem">
-                  <span class="nav-link">Welcome, <%= current_user.username %>!</span>
+                  <span class="nav-link custom-nav-item">Hello, <%= current_user.username %>!</span>
+                </li>
+                 <li class="nav-item" id="uploadPostItem">
+                  <%= link_to 'New Post', new_post_path, class: 'nav-link custom-nav-item' %>
                 </li>
                 <li class="nav-item" id="logoutItem">
                   <%= link_to 'Log out', user_session_path(current_user), class: 'nav-link custom-nav-item', data: { turbo_method: :delete } %>
-                </li>
-                <li class="nav-item" id="uploadPostItem">
-                  <%= link_to 'Upload New Post', new_post_path, class: 'nav-link custom-nav-item' %>
                 </li>
               <% else %>
                 <li class="nav-item" id="signInItem">

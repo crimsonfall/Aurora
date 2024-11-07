@@ -1,11 +1,11 @@
 <div class="container mt-5 pt-4">
   <div class="row">
     <div class="col-md-4 text-center text-white">
-      <div>
+      <div class="mb-4">
         <% if @user.profile_picture.attached? %>
-            <%= image_tag(@user.profile_picture , width:300)%>
+            <%= image_tag(@user.profile_picture , width:200)%>
           <% else %>
-            <%= image_tag('default_profile_picture.png',width:300) %>
+            <%= image_tag('default_profile_picture.png',width:200) %>
           <%end%>
       </div>
       <h3> <%=@user.username%> </h3>
@@ -58,7 +58,7 @@
           </div>
         <% end %>
         <% if @posts.empty? %>
-          <p class="post-caption">This user has not posted anything yet.</p>
+          <p class="post-caption text-white text-center">This user has not posted anything yet.</p>
         <% end %>
       </div>
     </div>
