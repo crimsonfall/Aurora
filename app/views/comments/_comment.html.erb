@@ -1,2 +1,2 @@
-<strong><%= comment.user.username %>: </strong>
+<strong class="comment-user-link"><%= link_to comment.user.username, user_path(comment.user)  %>: </strong>
 <p><%= comment.content %></p>
