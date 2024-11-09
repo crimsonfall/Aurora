@@ -43,23 +43,6 @@ class PostsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
-  def like
-    @post = Post.find(params[:id])
-
-    if current_user.liked_posts.include?(@post)
-      @post.likes.find_by(user_id: current_user.id).destroy
-      @liked = false
-    else
-      @post.likes.create(user: current_user)
-      @liked = true
-    end
-
-    respond_to do |format|
-      format.html { redirect_to @post }
-      format.json { render json: { like_count: @post.likes.count, liked: @liked } }
-  end
-  end
-
   private
 
     def post_params

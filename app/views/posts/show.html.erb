@@ -22,9 +22,9 @@
           <div class="d-flex justify-content-between mt-3">
             <div class="d-flex align-items-center">
               <% if logged_in? %>
-                <button class="btn btn-outline-primary btn-md like-btn btn-icon like-button" data-post-id="<%= @post.id %>">
-                  <%= current_user.liked_posts.include?(@post) ? 'Unlike' : 'Like' %>
-                </button>
+                <%= form_with(url: post_likes_path(@post, redirect_to: post_path(@post)), method: :post, local: true) do %>
+                  <%= submit_tag @post.likers.include?(current_user) ? 'Unlike' : 'Like', class: 'btn btn-outline-primary btn-md like-btn btn-icon like-button' %>
+                <% end %>
               <% end %>
               <span class="ms-2" id="like-count-<%= @post.id %>"><%= @post.likes.count %> likes</span>
             </div>
