@@ -25,8 +25,8 @@
             <div class="card-body">
               <div class="d-flex align-items-start">
                 <div>
-                  <h3 class="card-title"><%= post.title %></h3>
-                  <p class="post-caption"> By <%= post.user.username %></p>
+                  <h4 class="card-title"><%= post.title %></h4>
+                  <p class="post-caption"> <%= post.user.username %></p>
                 </div>
               </div>
               <div> <%= link_to image_tag(post.image, class: 'img-fluid post-image-index mt-3'), post_path(post) %></div>
@@ -35,13 +35,10 @@
                 <p><%= post.description %> </p>
               </div>
               <div class="d-flex justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                  <span class="ms-2" id="like-count-<%= post.id %>"><%= post.likes.count %> likes</span>
+                </div>
                 <% if logged_in? %>
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-primary btn-md like-btn btn-icon like-button" data-post-id="<%= post.id %>">
-                      <%= current_user.liked_posts.include?(post) ? 'Unlike' : 'Like' %>
-                    </button>
-                    <span class="ms-2" id="like-count-<%= post.id %>"><%= post.likes.count %> likes</span>
-                  </div>
                 <% if @user == current_user %>
                   <div class="d-flex">
                     <button class="btn btn-outline-secondary btn-md edit-caption-btn btn-icon me-2">
