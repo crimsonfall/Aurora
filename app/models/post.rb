@@ -8,4 +8,10 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :description, length: { maximum: 140, message: "must be 140 characters or less" }, allow_blank: true
   validates :image, presence: { message: "must be uploaded" }
+
+  def self.search(keyword)
+    return Post.none if keyword.blank?
+
+    where('LOWER(title) LIKE ?', "%#{keyword.downcase}%")
+  end
 end

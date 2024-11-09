@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :user_sessions, only: [:new, :create, :destroy]
+  get 'search', to: 'search#index', as: 'search'
 end

@@ -36,6 +36,12 @@
                 </li>
               <% end %>
             </ul>
+
+            <%= form_with(url: search_path, method: :get, local: true, class: "d-flex position-absolute top-50 start-50 translate-middle") do %>
+              <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search" %>
+              <%= submit_tag "Search", class: "btn btn-secondary" %>
+            <% end %>
+
             <ul class="navbar-nav ms-auto">
               <% if logged_in? %>
                 <li class="nav-item" id="welcomeItem">
