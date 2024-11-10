@@ -14,7 +14,7 @@
  @import "bootstrap";
 
 body {
-    background-color: rgb(34, 34, 34);
+    background-color: #171224;
     padding-top: 56px;
   }
 
@@ -29,7 +29,7 @@ body {
 }
 
 .custom-navbar {
-    background-color:rgb(102, 51, 153);
+    background-color: #332957;
 }
 
 .custom-navbar-title {
@@ -108,21 +108,24 @@ body {
 }
 
 .btn-primary:hover {
-    background-color:rgb(72, 35, 108);
-    border-color:rgb(72, 35, 108);
+    background-color:#35317b;
+    border-color:#35317b;
 }
 
 .btn-primary {
-    background-color:rgb(102, 51, 153);
-    border-color:rgb(102, 51, 153);
+    background-color:#554bad;
+    border-color:#554bad;;
+}
 
+.btn-secondary:hover {
+    background-color:#4639a5;
+    border-color:#4639a5
 }
 
 .btn-secondary {
-    background-color:rgb(72, 36, 108);
-    border-color:rgb(44, 40, 40)
+    background-color:#6050dd;
+    border-color:#6050dd
 }
-
 
 /* Ensure post form is wider but centered */
 .container {
