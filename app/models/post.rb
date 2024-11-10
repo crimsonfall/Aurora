@@ -12,6 +12,6 @@ class Post < ApplicationRecord
   def self.search(keyword)
     return Post.none if keyword.blank?
 
-    where('LOWER(title) LIKE ?', "%#{keyword.downcase}%")
+    where("LOWER(title) LIKE ?", "%#{keyword.downcase}%")
   end
 end
