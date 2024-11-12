@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all.order("created_at DESC")
   end
 
+  def feed
+    @posts = Post.where(user_id: current_user.followed_users.pluck(:id)).order("created_at DESC")
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new

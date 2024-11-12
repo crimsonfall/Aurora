@@ -1,0 +1,12 @@
+<div class="text-white">
+  <h1>Feed:</h1>
+  <% @posts.each do |post| %>
+    <h2><%= post.user.username %></h2>
+    <p><%= post.title %></p>
+    <p><%= post.description %></p>
+  <% end %>
+
+  <% if @posts.empty?%>
+    <p>No posts from people you follow! Follow more artists!</p>
+  <% end %>
+</div>

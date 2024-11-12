@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to feed_posts_path
     else
       flash.now[:alert] = "Incorrect email or password!"
       render :new
