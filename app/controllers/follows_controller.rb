@@ -10,5 +10,4 @@ class FollowsController < ApplicationController
     current_user.followed_users.delete(@user)
     redirect_to @user
   end
-  
 end

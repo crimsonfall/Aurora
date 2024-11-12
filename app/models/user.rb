@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :followed_users, through: :follows, source: :followed
 
   # Users that are following this user
-  has_many :reverse_follows, class_name: 'Follow', foreign_key: :followed_id, dependent: :destroy
+  has_many :reverse_follows, class_name: "Follow", foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :reverse_follows, source: :follower
 
   has_one_attached :profile_picture

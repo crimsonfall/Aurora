@@ -14,15 +14,15 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :edit, :update, :destroy]
     resources :likes, only: [:create]
     collection do
-      get 'feed'
+      get "feed"
     end
   end
   root "posts#index"
 
   resources :users, only: [:new, :create, :show, :edit, :update] do
     member do
-      post 'follow', to: 'follows#create'
-      delete 'unfollow', to: 'follows#destroy'
+      post "follow", to: "follows#create"
+      delete "unfollow", to: "follows#destroy"
     end
   end
   resources :user_sessions, only: [:new, :create, :destroy]
