@@ -14,12 +14,12 @@
       </p>
       <% if logged_in? %>
         <% if @user == current_user %>
-          <%= link_to 'Edit Profile', edit_user_path(@user) %>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-secondary" %>
           <% else %>
             <% if current_user.followed_users.include?(@user) %>
-              <%= button_to 'Unfollow', unfollow_user_path(@user), method: :delete %>
+              <%= button_to 'Unfollow', unfollow_user_path(@user), method: :delete, class: "btn btn-secondary" %>
             <% else %>
-              <%= button_to 'Follow', follow_user_path(@user), method: :post %>
+              <%= button_to 'Follow', follow_user_path(@user), method: :post, class: "btn btn-secondary" %>
             <% end %>
         <% end %>
       <% end %>
