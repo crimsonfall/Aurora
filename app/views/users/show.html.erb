@@ -15,6 +15,12 @@
       <% if logged_in? %>
         <% if @user == current_user %>
           <%= link_to 'Edit Profile', edit_user_path(@user) %>
+          <% else %>
+            <% if current_user.followed_users.include?(@user) %>
+              <%= button_to 'Unfollow', unfollow_user_path(@user), method: :delete %>
+            <% else %>
+              <%= button_to 'Follow', follow_user_path(@user), method: :post %>
+            <% end %>
         <% end %>
       <% end %>
     </div>
@@ -57,6 +63,15 @@
         <% if @posts.empty? %>
           <p class="post-caption text-white text-center">This user has not posted anything yet.</p>
         <% end %>
+
+        <div class="text-white">
+          <h3>Following:</h3>
+          <ul>
+            <% @user.followed_users.each do |followed| %>
+              <li><%= link_to followed.username, user_path(followed) %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

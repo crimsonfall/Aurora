@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   end
   root "posts#index"
 
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :users, only: [:new, :create, :show, :edit, :update] do
+    member do
+      post 'follow', to: 'follows#create'
+      delete 'unfollow', to: 'follows#destroy'
+    end
+  end
   resources :user_sessions, only: [:new, :create, :destroy]
   get "search", to: "search#index", as: "search"
 end
