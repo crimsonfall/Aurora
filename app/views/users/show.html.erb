@@ -63,15 +63,6 @@
         <% if @posts.empty? %>
           <p class="post-caption text-white text-center">This user has not posted anything yet.</p>
         <% end %>
-
-        <div class="text-white">
-          <h3>Following:</h3>
-          <ul>
-            <% @user.followed_users.each do |followed| %>
-              <li><%= link_to followed.username, user_path(followed) %></li>
-            <% end %>
-          </ul>
-        </div>
       </div>
     </div>
   </div>

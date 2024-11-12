@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("created_at DESC")
+    posts = Post.all.order("created_at DESC")
+    @posts = if params[:search].present?
+      posts.where('description LIKE ?', "%#{params[:search]}%")
+    else
+      posts
+    end
   end
 
   def feed
