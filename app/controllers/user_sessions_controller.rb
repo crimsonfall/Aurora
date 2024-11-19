@@ -9,8 +9,7 @@ class UserSessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to feed_posts_path
     else
-      flash.now[:alert] = "Incorrect email or password!"
-      render :new
+      redirect_to new_user_session_path, notice: "Incorrect email or password!"
     end
   end
 
