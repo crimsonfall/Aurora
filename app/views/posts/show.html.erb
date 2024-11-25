@@ -31,7 +31,7 @@
               <span class="ms-2" id="like-count-<%= @post.id %>"><%= @post.likes.count %> likes</span>
             </div>
             <% if logged_in? %>
-            <% if @post.user == current_user %>
+            <% if admin_user? || @post.user == current_user %>
               <div class="d-flex">
                 <button class="btn btn-outline-secondary btn-md edit-caption-btn btn-icon me-2">
                   <%= link_to raw("<i class='fas fa-pencil-alt'></i>"), edit_post_path(@post) %>

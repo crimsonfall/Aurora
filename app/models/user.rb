@@ -17,4 +17,14 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+  after_initialize :set_default_role, if: :new_record?
+
+  def set_default_role
+    self.admin ||= false
+  end
+
+  def admin?
+    self.admin
+  end
 end
