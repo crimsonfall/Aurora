@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   end
   resources :user_sessions, only: [:new, :create, :destroy]
   get "search", to: "search#index", as: "search"
+  get "admin/dashboard", to: "admin#dashboard", as: "admin_dashboard"
 end

@@ -7,7 +7,13 @@ class UserSessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to feed_posts_path
+
+      if @user.admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to feed_posts_path
+      end
+
     else
       redirect_to new_user_session_path, notice: "Incorrect email or password!"
     end
