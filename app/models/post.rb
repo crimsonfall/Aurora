@@ -9,6 +9,9 @@ class Post < ApplicationRecord
   validates :description, length: { maximum: 140, message: "must be 140 characters or less" }, allow_blank: true
   validates :image, presence: { message: "must be uploaded" }
 
+  LICENSES = ["Copyright", "Free Art License", "CC BY", "CC BY-SA", "CC BY-NC", "CC BY-NC-SA", "CC BY-ND", "CC BY NC-ND", "CC0"]
+  validates :license, inclusion: { in: LICENSES }
+
   def self.search(keyword)
     return Post.none if keyword.blank?
 

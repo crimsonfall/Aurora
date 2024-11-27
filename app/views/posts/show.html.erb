@@ -19,6 +19,7 @@
             <strong class="post-caption"> Posted <%= time_ago_in_words(@post.created_at)%> ago</strong>
             <p><%= simple_format(find_hashtags(@post.description)) %> </p>
           </div>
+          <div class="my-3">  <strong>License:</strong> <%= @post.license %></div>
           <div class="d-flex justify-content-between mt-3">
             <div class="d-flex align-items-center">
               <% if logged_in? %>

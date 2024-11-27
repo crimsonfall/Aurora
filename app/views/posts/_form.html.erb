@@ -23,6 +23,11 @@
             <%= form.file_field :image, class: "form-control", id: "postImage", accept: ".png, .jpg, .jpeg" %>
           </div>
 
+          <div class="mb-3">
+            <%= form.label :license, class: "form-label" %>
+            <%= form.select :license, Post::LICENSES, prompt: "Select A License", class: "form-select" %>
+          </div>
+
           <div id="postTextContainer" class="mb-3">
             <%= form.label :description, class: "form-label" %>
             <%= form.text_area :description, maxlength: 140, id: "postText", class: "form-control", rows: "3" %>
